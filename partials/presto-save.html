@@ -1,0 +1,27 @@
+<div id="savecontrols" class="saveControls content">
+<div class="messageContainer">
+    <div>
+        <div class="uppercase pull-right assetStatus">	
+            <span ng-show="!isPublished">DRAFT</span>
+            <span ng-show="isPublished" class="published">PUBLISHED</span>
+        </div>
+        <div class="label-text pull-left">
+            <span ng-show="state.isSavingDraft || state.isPublishing" style="display: none;"><i class="p-icon-spinner spinner"></i> <small><strong>Saving</strong></small></span>
+            <span class="uppercase text-small danger strong" ng-show="!isSaved">NOT SAVED</span>
+            <span class="savedOn" ng-show="isSaved" style=""><small class="ng-binding"><strong>Saved:</strong> >1 min ago<!--   (3/21/2013 4:48 pm) --></small></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="btn-group">			    	
+	<button id="fullscreen" title="Click for Full Screen View" ng-click="togglefullscreen()" class="btn"><i class="icon-fullscreen"></i></button>
+	<a id="previewbtn" ng-disabled="!isSaved" title="Click to Preview" class="btn" href="http://www.usatoday.com" target="preview"><i class="icon-eye-open"></i></a>
+</div>
+    
+    <div class="btn-group">
+		<button title="Click to send to Newsgate" class="btn"  ng-disabled="storyform.$invalid" ng-click="savedraft()" tabindex="2"><i class="icon- icon-arrow-right"></i> Newsgate</button>
+    	<button title="Click to save Draft" class="btn btn-primary" ng-disabled="storyform.$invalid" ng-click="savedraft()">Save</button>
+	</div>
+
+</div>

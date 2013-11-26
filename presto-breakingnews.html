@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US" ng-app>
+
+  <head>
+	<meta charset="utf-8">
+    <title>Presto | WORKING</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CSS -->
+    <link href="css/module.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/presto-ui.css" rel="stylesheet" media="screen">
+    <link href="css/pstrap.css" rel="stylesheet" media="screen">
+    <link href="css/select2.css" rel="stylesheet" media="screen">
+    <link href="css/presto-ux.css" rel="stylesheet" media="screen">
+    
+  </head>
+  
+<body id="Body">    
+    <form  id="Form" enctype="multipart/form-data" name="storyform" ng-controller="Controller" ng-submit="addAssignment(assignName)">
+
+	<ng-include src="'partials/presto-modals.html'"></ng-include>
+	
+<!-- Content -->
+<header class="navbar">
+   	
+   	 <div class="navbar-inner">
+
+        <div class="row-fluid">
+        
+				<ng-include src="'partials/presto-global-logo.html'"></ng-include>
+            
+            <div class="nav-collapse collapse">
+              
+				<ng-include src="'partials/presto-global-menu.html'"></ng-include>
+				
+                <ng-include src="'partials/presto-global-user.html'"></ng-include>
+                
+                <ng-include src="'partials/presto-global-siteselect.html'"></ng-include>
+                
+            </div>
+
+        </div>
+        
+    </div>
+	
+	<ng-include src="'partials/presto-breadcrumbs.html'"></ng-include>
+    
+</header>
+
+<section id="Content" class="row-fluid">
+
+	<ng-include src="'partials/presto-assettabs.html'"></ng-include>
+    
+	<div class="tab-content" id="Panes">
+		
+		<article id="story" class="tab-pane active">
+
+			<div class="clearfix">
+			
+				<div class="ContainerWrapper"></div>
+				
+					<div class="row-fluid">
+	    			
+	    				<div id="story" class="span8">
+	    				
+							<div id="" class="row-fluid">
+							
+								<ng-include src="'partials/presto-title.html'"></ng-include>
+							
+							</div>
+	    				
+		    				<div id="storydata" class="row-fluid">
+			    				
+			    				<div id="metadata" class="span4">
+			    							    					
+									<div class="content">
+											
+											<ng-include src="'partials/presto-meta-origin.html'"></ng-include>
+											
+											<ng-include src="'partials/presto-meta-share.html'"></ng-include>
+											
+											<ng-include src="'partials/presto-meta-frontassignment-1.html'"></ng-include>
+											
+									</div>
+								
+								</div>
+			    				
+			    				<div id="bodydata" class="span8">
+			    				
+                                    
+				<fieldset id="storycopy" class="span12">
+			
+					<section id="articlecontent">
+						
+					<div class="row">
+				
+					<label  class="pull-left">Associated Asset</label>
+					<div class="label-text small pull-right">leave blank for front page</div>
+					<input id="storyid" class="input-xlarge" type="text"  name="storyid" placeholder="Enter Asset ID or URL">
+				
+				</div>
+							
+					<div class="row">
+					<label  class="pull-left">Brief</label>
+					<div class="charcount label-text pull-right"><strong ng-bind="0 + brief.length"></strong> / 120</div>
+					<textarea id="brief" ng-model="brief" name="brief" cols="8" rows="8" placeholder="THIS IS A BREAKING STORY. PLEASE CHECK <a href='http://www.usatoday.com'>WWW.USATODAY.COM</a> FOR UPDATES."></textarea>
+				</div>
+				
+					</section>
+
+			</fieldset>
+				
+				<fieldset id="headlinoverrides" class="span12">
+				
+					<h3 class="bordertop span12"><i class="icon-globe"></i> Web/API</h3> 
+	 				 
+	 				<fieldset id="weboverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+						
+						<h4><i id="status-Banner" ng-class="{true: 'published icon-ok', false: 'unpublished icon-ban-circle'}[isPublishedNow]"></i> Banner</h4>
+							
+						<div ng-show="isPublished" class="xsmall label-text publishdate"><em>3/2/2013 4:48 PM</em></div>
+						
+							<div class="pull-right input-prepend">
+								<button class="btn btn-warning" ng-disabled="!isPublishedNow" ng-click="unpublish()"><i class="icon-ban-circle"></i></button>
+								<input type="number" ng-class="{true: 'expirevalue countdown', false: 'expirevalue'}[isPublishedNow]" class="" value="30">
+							</div>
+						</div>
+					 
+						<div class="span7 headlineoverride">
+						
+						
+						<div class="input-append">
+							<input type="text" placeholder="" ng-model="weboverride1" class="overrideheadline" value="{{defaultheadline}}">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 55</div>
+							
+							
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish()"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+				
+						
+	 				</fieldset>	
+	 				
+				
+					<h3 class="bordertop span12"><i class="p-icon-mobile"></i> Mobile</h3> 
+	 				
+	 				<fieldset id="mobileoverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+						<h4><i ng-class="{true: 'published icon-ok', false: 'unpublished icon-ban-circle'}[isPublishedNow]"></i> Banner</h4>
+							
+						<div ng-show="isPublished" class="xsmall label-text publishdate"><em>3/2/2013 4:48 PM</em></div>
+							
+							<div class="pull-right input-prepend">
+								<button class="btn btn-warning" ng-disabled="!isPublishedNow" ng-click="unpublish()"><i class="icon-ban-circle"></i></button>
+								<input type="number" ng-class="{true: 'expirevalue countdown', false: 'expirevalue'}[isPublishedNow]" class="" value="30">
+							</div>
+						</div>
+					
+						
+					
+						<div class="span7 headlineoverride">
+						
+						
+						<div class="input-append">
+							<input type="text" placeholder="" ng-model="weboverride2" class="overrideheadline" value="{{defaultheadline}}">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 55</div>
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish()"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+	 				</fieldset>		
+	 				
+	 				<fieldset id="movilepushoverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+						<h4><i ng-class="{true: 'published icon-ok', false: 'unpublished icon-ban-circle'}[isPublished]"></i> Push Alert</h4>
+
+							
+						<div ng-show="isPublished" class="xsmall label-text publishdate"><em>3/2/2013 4:48 PM</em></div>
+						</div>
+					
+						
+					
+						<div class="span7 headlineoverride">
+						
+						 
+						<div class="input-append">
+							<input type="text" placeholder="" ng-model="weboverride3" class="overrideheadline" value="{{defaultheadline}}">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 55</div>
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish()"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+	 				</fieldset>	 
+	 				
+	 				
+					<h3 class="bordertop span12"><i class="p-icon-tablet"></i> Tablet</h3> 
+	 				
+	 				<fieldset id="tabletbanneroverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+							<h4><i ng-class="{true: 'published icon-ok', false: 'unpublished icon-ban-circle'}[isPublishedNow]"></i> Banner</h4>
+							
+							
+						<div ng-show="isPublished" class="xsmall label-text publishdate"><em>3/2/2013 4:48 PM</em></div>
+							<div class="pull-right input-prepend">
+								<button class="btn btn-warning" ng-disabled="!isPublishedNow" ng-click="unpublish()"><i class="icon-ban-circle"></i></button>
+								<input type="number" ng-class="{true: 'expirevalue countdown', false: 'expirevalue'}[isPublishedNow]" class="" value="30">
+							</div>
+						</div>
+					
+						
+					
+						<div class="span7 headlineoverride">
+						
+						
+						<div class="input-append">
+							<input type="text" placeholder="" ng-model="weboverride4" class="overrideheadline" value="{{defaultheadline}}">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 55</div>
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish()"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+	 				</fieldset>		
+	 				
+	 				<fieldset id="tabletpushoverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+						<h4><i  ng-class="{true: 'error icon-remove', false: 'unpublished icon-ban-circle'}[isPublished]"></i> Push Alert</h4>
+						<div ng-show="isPublished" class="xsmall label-text"><em>3/2/2013 4:48 PM</em> | <a href="#">DETAILS</a></div>
+
+						</div>
+					
+					
+					
+						<div class="span7 headlineoverride">
+						
+						
+						<div class="input-append"><input type="text" placeholder="" ng-model="weboverride8" ng-class="{true: '', false: 'overrideheadline'}[isOverride]" class="overrideheadline" ng-click="hloverride()" value="{{defaultheadline}}">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 55</div>
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish()"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+	 				</fieldset>	
+	 				
+	 				<h3 class="bordertop span12"><i class="p-icon-twitter"></i> Twitter</h3> 	
+	 				
+	 				<fieldset id="twitteroverride" class="row-fluid">
+
+						<div class="span4 sidehead">
+						<h4><i ng-class="{true: 'published icon-ok', false: 'unpublished icon-ban-circle'}[isPublished]"></i> Push Alert</h4>
+						<div ng-show="isPublished" class="xsmall label-text publishdate"><em>3/2/2013 4:48 PM</em></div>
+						</div>
+					
+					
+					
+						<div class="span7 headlineoverride">
+						
+						
+						<div class="input-append">
+							<input type="text" placeholder="" ng-model="weboverride5" class="overrideheadline" value="#BREAKING:{{defaultheadline}} usat.ly/1234567 ">
+							<div  class="charcount btn disabled"><strong ng-bind="0 + weboverride.length"></strong> / 140</div>
+							<a href="#preview1" data-toggle="modal" class="btn" ng-disabled="storyform.$invalid"><i class="icon-eye-open"></i></a>
+							<button class="btn btn-success" ng-disabled="storyform.$invalid" ng-click="publish($isPublished)"><i class="icon-arrow-right"></i></button>
+						</div>
+						
+						</div>
+						
+	 				</fieldset> 							
+						
+				</fieldset>
+				    				
+			    				</div>
+			    				
+		    				</div>
+		    				
+	    				</div>
+	    		
+						<div id="storycontrols" class="span4 pull-right">
+	    				
+							<div id="assetBar">
+								
+								<ng-include src="'partials/presto-save.html'"></ng-include>
+			    				
+								<ng-include src="'partials/presto-publish.html'"></ng-include>
+			    					
+			    				<ng-include src="'partials/presto-assetspanel.html'"></ng-include>
+			    				
+			    			</div>
+	    			
+						</div>
+	    			
+	    			</div>
+				
+				</div>
+		
+			</article>
+		
+		<article id="versions" class="tab-pane">Versions</article>
+	
+	</div>
+		
+</section>
+
+	
+<!-- JavaScript -->
+<script src="js/presto.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/presto.js"></script>
+
+
+<!--
+            <script src="js/jquery.min.js"></script>
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+            <script src="js/select2.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+            <script src="js/presto.js"></script>
+            <script src="js/components.js"></script>
+            <script src="js/app.js"></script>
+            <script src="js/services.js"></script>
+            <script src="js/resources.js"></script>
+            <script src="js/controllers.js"></script>
+            <script src="js/filters.js"></script>
+            <script src="js/directives.js"></script>
+
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+            <script src="epiceditor/js/epiceditor.min.js"></script>
+           
+            <script>
+                $(window).load(function startPage() {
+                    startEditor();
+                });
+                
+                function startEditor() {
+                    var editor = new EpicEditor().load();
+                    console.log('loaded')
+                }
+            </script>
+-->
+  </form>
+  </body>
+</html>

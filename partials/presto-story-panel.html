@@ -1,0 +1,26 @@
+
+
+<div class="storypanelbody">
+<div class="storypanel {{storypanel.assetstatus}}" ng-repeat="storypanel in storypanels">
+	
+	<div class="data watched">
+		<a ng-click="" href="#"><i class="icon-star hidecontrol"></i></a>
+	</div>
+	
+	<div class="data assettype muted text-xlarge"><i class="{{storypanel.asseticon}}" alt="{{storypanel.assettype}}" title="{{storypanel.assettype}}"><span class="hide">{{storypanel.assettype}}</span></i></div>
+	
+	<div class="data"><ng-include src="'partials/presto-assetbullet.html'"></ng-include></div>
+	
+	<div class="data thumbnail"><a class="" href="presto-create-story.html"><img src="img/thumbnail.jpg"></a></div>
+	
+	<div class="data headline"><a href="presto-create-story.html">{{storypanel.headline}}</a></div>
+
+	<div class="data ssts text-small"><a href="presto-fronts.html">{{storypanel.ssts}}</a></div>
+	
+	<div class="data author text-small">{{storypanel.byline}}</div>
+	
+	<div class="data actiondate text-small"  tooltip="11/14/13 3:01 PM" tooltip-placement="bottom"> {{storypanel.actiontime}} <br><strong class="text-error">{{storypanel.assetstatus}}</strong></div>
+	
+</div>
+</div>
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US" ng-app>
+
+<head>
+	<meta charset="utf-8">
+	<title>Presto | WORKING</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- CSS -->
+	<link href="css/module.css" rel="stylesheet" media="screen">
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="css/presto-ui.css" rel="stylesheet" media="screen">
+	<link href="css/pstrap.css" rel="stylesheet" media="screen">
+	<link href="css/select2.css" rel="stylesheet" media="screen">
+	<link href="css/presto-ux.css" rel="stylesheet" media="screen">
+
+</head>
+
+<body id="Body">
+	<div id="Form" enctype="multipart/form-data" name="storyform" ng-controller="Controller" ng-submit="addAssignment(assignName)">
+
+		<ng-include src="'partials/presto-modals.html'"></ng-include>
+
+		<!-- Content -->
+		<header class="navbar">
+
+			<div class="navbar-inner">
+
+				<div class="row-fluid">
+
+					<ng-include src="'partials/presto-global-logo.html'"></ng-include>
+
+					<div class="nav-collapse collapse">
+
+						<ng-include src="'partials/presto-global-menu.html'"></ng-include>
+
+						<ng-include src="'partials/presto-global-user.html'"></ng-include>
+
+						<ng-include src="'partials/presto-global-siteselect.html'"></ng-include>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</header>
+
+		<section id="content" class="row-fluid">
+
+			<div class="tabbable tabs-left">
+
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#dashboard" data-toggle="tab">Content</a>
+					</li>
+					<li class="">
+						<a href="#wires" data-toggle="tab">Wires</a>
+					</li>
+					<li class="nav-header">Fronts</li>
+					<li class="">
+						<a href="#home" data-toggle="tab">Experience</a>
+					</li>
+					<li class="">
+						<a href="#news" data-toggle="tab">Life</a>
+					</li>
+					<li class="">
+						<a href="#sports" data-toggle="tab">Money</a>
+					</li>
+					<li class="">
+						<a href="#life" data-toggle="tab">News</a>
+					</li>
+					<li class="">
+						<a href="#money" data-toggle="tab">Opinion</a>
+					</li>
+					<li class="">
+						<a href="#tech" data-toggle="tab">Sports</a>
+					</li>
+					<li class="">
+						<a href="#travel" data-toggle="tab">Tech</a>
+					</li>
+					<li class="">
+						<a href="#travel" data-toggle="tab">Travel</a>
+					</li>
+					<li class="">
+						<a href="#travel" data-toggle="tab">Weather</a>
+					</li>
+					<li class="">
+						<a href="#travel" data-toggle="tab">Non-Story</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+
+					<div class="tab-pane active span11" id="dashboard">
+
+						<div class="row-fluid">
+							
+							<div class="pull-left nav-pills-box">
+								<ul class="nav nav-pills">
+									<li class="active">
+										<a ng-click="togglelist()" class="icon-list"></a>
+									</li>
+									<li>
+										<a ng-click="togglecards()" class="icon-th-large"></a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="pull-left nav-pills-box">
+								<ul class="nav nav-pills">
+									<li class="active">
+										<a href="#">All</a>
+									</li>
+									<li>
+										<a href="#">Mine</a>
+									</li>
+									<li>
+										<a href="#">Watched</a>
+									</li>
+									<li>
+										<a href="#">Shared</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="pull-left nav-pills-box">
+								<ul class="nav nav-pills">
+									<li class="active">
+										<a href="#">All</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="p-icon-text"></i> Stories</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="p-icon-images"></i> Galleries</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="p-icon-video2"></i> Video</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="pull-right">
+								<form class="form-search">
+									<div class="input-append">
+										<input type="text" class="span8 search-query">
+										<button type="submit" class="btn">Search</button>
+									</div>
+								</form>
+							</div>
+
+						</div>
+
+
+						<div id="mystorieslist" class="storylist">
+
+								<ng-include src="'partials/presto-story-panel.html'"></ng-include>
+						
+
+						</div>
+
+					</div>
+
+					<div class="tab-pane span11" id="wires">
+						<ng-include src="'partials/presto-wires.html'"></ng-include>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+
+		<!-- JavaScript -->
+		<script src="js/presto.js"></script>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/components.js"></script>
+		<script src="js/select2.min.js"></script>
+		<script src="js/presto.js"></script>
+
+	</div>
+</body>
+
+</html>

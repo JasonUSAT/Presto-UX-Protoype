@@ -1,0 +1,103 @@
+<div class="assetPanelContainer">
+<div id="assetspanel" class="assetsPanel">
+
+<tabset class="nav nav-tabs" id="assetTabs">
+			
+<div class="tabbable">
+		
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-search"></i></a></li>
+<li><a href="#tab2" data-toggle="tab">Assets</a></li>
+</ul>
+
+<div class="tab-content">
+				
+<div id="tab1" class="tab-pane form-search active" title="search">
+
+<header>
+
+<div class="input-prepend input-append searchBox">
+
+<div class="btn-group">
+<button class="btn dropdown-toggle" data-toggle="dropdown">
+Any
+<span class="caret"></span>
+</button>
+<ul class="dropdown-menu">
+<li><a href="#">Any</a></li>
+<li><a href="#"><i class="p-icon-html"  title="Embed"></i> Embed</a></li>
+<li><a href="#"><i class="icon-facetime-video" title="video"></i> External Video</a></li>
+<li><a href="#"><i class="p-icon-popup" title="video"></i> Gallery</a></li>
+<li><a href="#"><i class="icon-camera" title="video"></i> Image</a></li>
+<li><a href="#"><i class="icon-hand-up" title="video"></i> Interactive</a></li>
+<li><a href="#"><i class="icon-map-marker" title="video"></i> Map</a></li>
+<li><a href="#"><i class="p-icon-quote-left" title="video"></i> Pullquote</a></li>
+<li><a href="#"><i class="p-icon-text" title="video"></i> Text</a></li>
+<li><a href="#"><i class="icon-facetime-video" title="video"></i> Video</a></li>
+</ul>
+</div>
+
+<input type="search" class="input-medium" ng-model="model.searchkeyword" ng-blur="searchresults()" placeholder="Keyword/Content ID">
+
+<div class="btn-group">
+<button type="submit" class="btn" ng-click="searchresults()"><i class="icon-search"></i></button>
+</div>
+
+</div>
+
+</header>
+
+<div class="assetList">
+
+<div class="assetListDefaultText" ng-hide="isSendRequest || !isSearchResults">
+<strong>Enter keyword or content ID above to begin search.</strong>
+</div>
+
+<div class="assetListDefaultText" ng-show="noSearchResults">
+<strong class="text-warning">Sorry. No results found for "<span ng-bind="model.searchkeyword">your search</span>".</strong><hr>Enter keyword or content ID above to search again.
+</div>
+
+<div ng-show="isSendRequest"><i class="p-icon-spinner spinner spinner-middle"></i></div>
+
+<div class="assetListContainer assetSearch" ng-show="!isSearchResults" ng-hide="isSendRequest || isSearchResults" style="">
+
+	<ng-include src="'partials/presto-assetsearchitem.html'"></ng-include>
+
+
+</div>
+
+</div>
+
+</div>
+
+<div id="tab2" class="tab-pane" title="assets">
+
+<header>
+<span class="badge">999</span> Assets
+</header>
+
+<div class="assetList">				
+
+<div class="assetListDefaultText" ng-hide="!isAssetAdded">
+<strong>No assets have been added to this article yet.</strong>
+</div>
+
+<div class="assetListContainer assetSearch" ng-show="isAssetAdded" ng-hide="!isAssetAdded"style="">
+
+<ng-include src="'partials/presto-assetsearchitem.html'"></ng-include>>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</tabset>
+
+</div>
+</div>

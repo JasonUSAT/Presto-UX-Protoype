@@ -1,0 +1,47 @@
+<div id="publishcontrols" class="publishControls content">	
+						
+<div id="publishbutton" class="">
+	<a href="#publishconfirm" id="publishbtn" class="btn btn-success btn-large btn-block" ng-disabled="!isSaved" data-toggle="modal">Publish</a>
+</div>
+
+<div id="publishedmsg1" class="embargomsg pull-clear text-small" ng-show="!isPublished && !isEmbargoed"><strong>Published:</strong> Not Published</div>
+	
+<div id="publishedmsg2" class="embargomsg pull-clear text-small" ng-show="isPublished && !isEmbargoed"><strong>Published:</strong> >1 Min ago<!--   (3/21/2013 4:48 pm) --></div>
+
+<div id="publishedmsg3" class="embargomsg pull-clear text-small" ng-show="isEmbargoed"><strong>Published:</strong> Pending Embargo</div>
+
+<div id="publishedmsg3" class="embargomsg pull-clear text-small" ng-show="isEmbargoed"><strong>Published:</strong> </div>
+
+<div id="embargodate1" class="embargomsg pull-clear text-small" ng-show="!isEmbargoed"><strong>Embargo</strong>: Publish Immediately <button class="btn btn-micro btn-inverse" ng-click="toggleembargooptions()">edit</button></div>
+
+<div id="embargodate2" class="embargomsg pull-clear text-small" ng-show="isEmbargoed"><strong>Embargo</strong>: 58 Min  (3/21/2013 4:48 pm) <button style="" class="btn btn-micro btn-inverse"  ng-click="toggleembargooptions()">edit</button></div>
+
+
+<div id="embargooptions" class="text-small" ng-show="isEmbargoOptions">
+						<label class='control-label text-small' for='inputIcon'>Embargo Date/Time</label>
+						<div class='controls'>
+							<div class='input-prepend input-append'>
+								<span class='add-on'><i class='icon-calendar'></i></span>
+								<input ng-click="embargo()" id='inputIcon' type='datetime-local'>
+							<button title="Click to Cancel Embargo" class="btn" ng-click="cancelembargo()"><i class="icon-remove-sign"></i></button>
+							</div>
+							
+							
+						</div>	    		 
+					</div>	
+		
+<div id="contentque" class="pull-clear text-small">
+	
+	<div id='returnqueue'  ng-show="isPublished">
+						
+						<input id="returncq" type='checkbox' style='vertical-align: baseline;'> 
+						<label for="returncq" style='display: inline-block' class='text-small'>Return Story to Content Queue</label>
+					
+						</div>
+					
+	<label for="notecq" class="text-small strong">Note to Content Queue</label>
+	<textarea id="notecq" name="notecq" class="span12 text-small ng-pristine ng-valid" rows="1" placeholder="click to add note" ng-model="model.notesToCq"></textarea>
+	
+</div>						
+
+</div>

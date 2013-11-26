@@ -1,0 +1,36 @@
+<div class="btn-group dropdown metalinks">
+
+	<button class="btn btn-mini asset-bullet" title="click to copy ID to clipboard">
+		<i ng-hide="isSaved" class="p-icon-record danger"></i>
+		<i ng-hide="isPublished" ng-show="isSaved" class="p-icon-record draft"></i>
+		<i ng-show="isPublished" class="p-icon-record published"></i>
+		<!-- <i class="p-icon-sharethree published"></i>  --> 
+		ID 838098
+	</button>
+	<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+	
+	<ul class="dropdown-menu">
+
+		<div class="muted text-small pull-left">
+			<div class="meta-data">
+				<div> <strong>Last action:</strong> 
+					<span ng-hide="isSaved"><strong class="capitalize danger">Not Saved</strong> </span>
+					<span ng-hide="isPublished" ng-show="isSaved"><strong class="capitalize draft">Draft</strong> - 8/28/13 9:41 AM</span>
+					<span ng-show="isPublished"><strong class="capitalize published">Published</strong> - 8/28/13 9:41 AM</span>
+				</div>
+				<div><strong>Created by:</strong> jsmith</div>
+				<div><strong>Modified by:</strong> jsmith</div>
+				<div id="assetorigin" class=""><strong>Site:</strong> <a href="http://www.app.com/" target="external">Asbury Park Press</a></div>	
+				<div><strong>Sub-site:</strong> <a ng-bind="subsitename" href="http://www.app.com/" target="external">None</a></div>
+				<li class="divider"></li>
+			</div>
+			<!-- dropdown menu links -->
+				<li class="noedit"><a href="#">Edit Asset</a></li>
+				<li><a href="#">Duplicate Asset</a></li>
+				<li class="divider"></li>
+				<li><a href="#">View XML</a></li>
+				<li><a href="#">View JSON</a></li>
+		</div>
+	</ul>
+	
+</div>

@@ -1,0 +1,241 @@
+﻿/** Asset Bullet **/
+
+.asset-bullet input {
+    padding: 0; 
+    position: relative;  
+    top: -2px; 
+    height: 12px; 
+    width: 3.5em; 
+    border: none;
+    background: 0; 
+    font-size: 1em; 
+    margin: 0; 
+    vertical-align: middle;
+    line-height: 1.4;
+    text-align: right;
+    box-shadow: none;
+}
+
+.asset-bullet-dropdown {
+    text-align: left;
+}
+
+/** Asset Panel **/
+
+.assetPanelContainer,
+#assetBar {
+    width: 304px;
+}
+
+.assetPanelContainer > div {
+    padding: 10px;
+}
+
+.assetPanelContainer .assetsPanel {
+    padding: 10px 0 0;
+}
+
+.assetPanelContainer .nav {
+    margin-bottom: 0;
+}
+
+#assetBar .tab-content {
+    border: solid 1px #ddd;
+    background-color: rgb(240,240,240);
+    border-width: 0 1px 1px;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+#assetBar .tab-content header {
+    background: white;
+    border-bottom: 1px solid rgb(220,220,220);
+    margin: 0;
+    padding: 10px 10px 0;
+    min-height: 40px;
+}
+
+.assetListDefaultText {
+    padding: 10px;
+    font-size: 1.5em;
+    color: rgb(153,153,153);
+    line-height: 26px;
+    font-weight: bold;
+}
+
+.assetListContainer .assetItem:last-child {
+    margin-bottom: 100px;
+}
+
+.assetList-summary {
+    border-bottom: 1px solid rgb(220,220,220);
+    padding-bottom: .5em;
+    padding-right: 9px;
+}
+
+.assetList {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.assetList .assetItem {
+    padding: 15px 5px 9px 8px;
+    border: solid 1px #ccc;
+    border-width: 1px 0;
+    background: rgb(255,255,255);
+}
+
+.assetList .assetItem:hover {
+    background: rgb(245,245,245);
+}
+
+.assetList .assetItem .hide {
+    display: inline;
+    margin-right: .5em;
+    opacity: 0;
+    text-align: center;
+}
+
+.assetList .assetItem:hover .hide.hover {
+    display: inline;
+    opacity: 1;
+}
+
+.assetList .assetTitle {
+    font-weight: bold;
+}
+
+.assetList .assetTimestamp {
+    font-size: 11px;
+}
+
+.assetList .assetThumbnail {
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.assetList .assetThumbnail > div {
+    position: relative;
+}
+
+.spinner-middle { /*override for size*/
+    margin-left: -12px;
+    margin-top: -12px;
+    font-size: 24px;
+}
+
+.largeList.assetList {
+    height: auto;
+    overflow: visible;
+}
+
+.largeList .assetItem {
+    padding-left: 15px;
+}
+
+.playlistIndex {
+    position: absolute;
+    background-color: #fff;
+    -ms-border-radius: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 4px rgba(0,0,0,.2);
+    padding: 2px 7px;
+    top: -15px;
+    left: -16px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.largeList .assetRunTime {
+    margin-left: 5px;
+}
+
+/** Classification **/
+
+.select2-search-choice.selection-row {
+    margin: 5px 5px 5px 5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    float: none !important;
+}
+.select2-parent-choice {
+    font-weight: bold !important;
+}
+.select2-child-choice {
+    padding-left: 10px !important;
+}
+
+/** Publish Controls **/
+
+.publishControls {
+    background-color: #646464;
+    color: #fff;
+}
+
+.publishControls i {
+    color: #333;
+}
+
+/** Save Controls **/
+
+.saveControls {
+    background-color: rgb(240,240,240);
+}
+
+.messageContainer {
+    margin-bottom: 10px;
+}
+
+.assetStatus {
+    color: rgb(204,153,0);
+    font-weight: bold;
+}
+
+.published {
+    color: #008000;
+    font-weight: bold;
+}
+
+.assetStatus {
+    font-size: 12px;
+}
+
+.savedOn  small {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 190px;
+    display: inline-block;
+    position: absolute;
+    border: solid 1px rgba(225, 225, 225, 0);
+    padding: 1px 3px 1px 0;
+    border-radius: 5px;
+    margin-top: -2px;
+    cursor: default;
+}
+
+/** Drag Drop **/
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+    cursor: move;
+}
+
+.drag-over-top {
+    border-top-color: #11afe0 !important;
+    /*padding-top: 3px !important;*/
+}
+
+.drag-over-bottom {
+    border-bottom-color:#11afe0 !important;
+    /*padding-bottom: 3px !important;*/
+}
+

@@ -1,0 +1,211 @@
+<section>
+				
+				<input id="breakingnews" type="checkbox" >
+				<label for="breakingnews" class="left"> Breaking News</label>
+				
+				<hr>
+				
+				<div id="excludefrom">
+								<label class="inline">Exclude from:</label><br>
+								
+								<input id="excludemobile" type='checkbox'> 
+								<label for="excludemobile" class="inline">Mobile</label>
+								
+								<input id="excludecheckbox" type='checkbox'> 
+								<label for="excludecheckbox" class="inline">Tablet</label>
+								
+				</div>
+				
+				
+				<hr>
+
+					<h4>SEO</h4>
+		
+					<label class="pull-left" for="pagetitle">Page Title</label><div class="char-count label-text pull-right"><strong ng-bind="0+pagetitle.length"></strong> / 70</div>
+					<input type="text" id="pagetitle" ng-model="pagetitle" name="pagetitle" value="{{storyheadline}}">
+				
+				
+				
+				
+				<label class="pull-left" for="metadescription">Meta Description</label>
+				<div class="char-count label-text pull-right"><strong ng-bind="0+metadescription.length"></strong> / 210</div>
+				<textarea id="metadescription" ng-model="metadescription"  name="metadescription" cols="8" rows="3"></textarea>
+				
+				<div>
+				<label for="metadescription" class="pull-clear">Tags</label>
+				  <input class="span12" id="appendedInputButton" onblur="showtags()" type="text" placeholder="Enter a Tag Name">
+				</div>
+				
+				<span id="tags" class="hide">
+				  <span class="badge tags" id="tag1">tag 1 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag2">long tag 2 <i class="icon-remove-sign"></i></span><span class="badge tags" id="tag5">tag 5 <i class="icon-remove-sign"></i></span> 
+				  <span class="badge tags" id="tag3">even longer tag 3 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag4">tag 4 <i class="icon-remove-sign"></i></span>
+				  
+				</span>
+				<span id="tagsauto" class="hide">
+				  <span class="badge tags" id="tag1a">tag 1 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag2a">long tag 2 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag3a">even longer tag 3 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag4a">tag 4 <i class="icon-remove-sign"></i></span>
+				  <span class="badge tags" id="tag5a">tag 5 <i class="icon-remove-sign"></i></span> 
+				</span>
+				
+				<div class="pull-clear">	<label class="pull-left" for="googlekeywords">Google Keywords</label>
+					<div class="char-count label-text pull-right"><strong ng-bind="0+googlekeywords.length"></strong> / 10 keywords</div>
+					<textarea id="googlekeywords"  name="googlekeywords" ng-model="googlekeywords" cols="8" rows="3"></textarea></div>
+				
+				<hr>
+				<h4>Source & Byline</h4>
+				
+				<label class="pull-left" for="pagetitle">Asset Source</label>
+					<input type="text" class="" id="assetsource" name="assetsource" placeholder="USA TODAY">
+					
+				<label class="pull-left" for="byline">Gannett Contributors &amp; Byline</label>
+					<input type="text" class="" ng-model="byline" id="byline" name="byline">
+				
+				<label class="left">
+					<input type="checkbox" style="vertical-align: top" onclick="showMe('bylineoverride')"> Override Byline</label>
+				
+				<div class="clearboth" id="bylineoverride">
+					<label class="pull-left" for="displayname">Display Name</label>
+					<div class="char-count label-text pull-right"><strong ng-bind="0+displayname.length"></strong> / 90</div>
+					<textarea cols="8" rows="3" id="displayname" ng-model="displayname" name="shorthead"></textarea>
+					
+					<label class="pull-left" for="displaysource">Display Source</label>
+					<div class="char-count label-text pull-right"><strong ng-bind="0+displaysource.length"></strong> / 90</div>
+					<textarea cols="8" rows="3" class="" id="displaysource" ng-model="displaysource" name="shorthead"></textarea>
+				</div>
+				
+				<hr class="clearboth">
+	
+				
+				<h4>Content Type</h4>
+			
+				<label>Classification</label>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				<select>
+					<option selected>SUBSECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				<select>
+					<option selected>TOPIC</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				<select>
+					<option selected>SUBTOPIC</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				
+				
+				<label>Front Assignment</label>
+				<ol>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				<li>
+				<select>
+					<option selected>SECTION</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+				</li>
+				</ol>
+				
+				<label>Featured Series</label>
+				<select>
+					<option selected>FEATURED SERIES</option>
+					<option>Option 1</option>
+					<option>Option 2</option>
+					<option>Option 3</option>
+					<option>Option 4</option>
+					<option>Option 5</option>
+					<option>Option 6</option>
+				</select>
+			
+			<hr>
+			
+					<input id="noadvertising" class='' type='checkbox' style='vertical-align: baseline;'> 
+					<label for="noadvertising" style='display: inline-block' >Publish Without Advertising</label>
+
+				
+			</section>

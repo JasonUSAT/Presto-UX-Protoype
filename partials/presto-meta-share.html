@@ -1,0 +1,19 @@
+<section id="assetshare" class="muted text-small">
+	<label><i class="p-icon-sharethree"></i> Share</strong> 
+	<button class="btn btn-micro pull-right" ng-click="toggleshareoptions()">edit</button>
+	<div class="text-small indent-10" ng-show="!isShareOptions">With All</div> 
+</section>
+
+
+<section id="shareoptions" class="muted text-small" ng-show="isShareOptions">
+	<div class='controls indent-10'>
+		<label for="shareoption1"><input type="radio" name="sharingoptions" id="shareoption1" checked>All</label> <!--
+
+		<label for="shareoption2"><input type="radio" name="sharingoptions" id="shareoption2">Other Properties and Sites</label> 
+		<label for="shareoption3"><input type="radio" name="sharingoptions" id="shareoption3">Other Sites Only</label> 
+-->
+		<label for="shareoption4"><input type="radio" name="sharingoptions" id="shareoption4">No Sharing</label> 
+	</div>	    		 
+</section>
+
+<hr>

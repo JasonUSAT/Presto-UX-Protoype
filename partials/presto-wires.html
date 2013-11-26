@@ -1,0 +1,634 @@
+<section id="page" ng-controller="Controller" class="">
+
+	<div class="tabbable tabs-left">
+
+		<div class="tab-content">
+
+			<article id="story" class="tab-pane active">
+				
+				<div class="tabbable tabs-left">
+
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#favorites" data-toggle="tab">Favorites</a>
+						</li>
+						<li>
+							<a href="#index" data-toggle="tab">Index</a>
+						</li>
+						<!-- <li><a href="#search"  data-toggle="tab">Search</a></li> -->
+					</ul>
+
+					<div id="storyindex" class="span2 columnlist">
+						<div id="articlemetacontent" class="column">
+
+
+							<div class="tab-content additem">
+
+								<ul id="index" class="tab-pane index">
+
+									<li>Hot Wires</li>
+
+									<ul class="columns2" id="hotwire">
+										<li class="indexitem" ng-repeat="hotwire in hotwires">
+											<a ng-click="addfavorite('Hotwire—' + hotwire.text)" href="#">
+												<i class="icon-star hidecontrol"></i>
+											</a>
+											<a href="#" ng-click="showentrylist()" class="done-{{hotwire.done}}">{{hotwire.text}}</a>
+										</li>
+									</ul>
+
+									<li>State</li>
+
+									<ul class="columns2" id="statenames">
+										<li class="indexitem" ng-repeat="statename in statenames">
+											<a ng-click="addfavorite('State—' + statename.text)" href="#">
+												<i class="icon-star hidecontrol"></i>
+											</a>
+											<a href="#" ng-click="showentrylist()" class="done-{{statename.done}}">{{statename.text}}</a>
+										</li>
+									</ul>
+
+
+
+									<li>Misc</li>
+
+									<ul class="columns2" id="misc">
+										<li class="indexitem" ng-repeat="misc in misc">
+											<a ng-click="addfavorite('Misc—' + misc.text)" href="#">
+												<i class="icon-star hidecontrol"></i>
+											</a>
+											<a href="#" ng-click="showentrylist()" class="done-{{misc.done}}">{{misc.text}}</a>
+										</li>
+									</ul>
+
+									<li>Sports — Misc</li>
+
+									<ul class="columns2" id="sportsother">
+										<li class="indexitem" ng-repeat="sportsother in sportsother">
+											<a ng-click="addfavorite('Sports—' + sportsother.text)" href="#">
+												<i class="icon-star hidecontrol"></i>
+											</a>
+											<a href="#" ng-click="showentrylist()" class="done-{{sportsother.done}}">{{sportsother.text}}</a>
+										</li>
+									</ul>
+
+
+								</ul>
+
+								<ul id="favorites" class="active index">
+
+									<div class="message" ng-model="favoritesmessage" ng-show="favoritesmessageshow">
+										Choose Favorites From the Index List.
+									</div>
+
+									<ul class="columns2">
+										<li class="indexitem" ng-repeat="favorite in favorites">
+											<a href="#">
+												<i class="icon-remove-sign hidecontrol"></i>
+											</a>
+											<a href="#" ng-click="showentrylist()" class="done-{{favorite.done}}">{{favorite.text}}</a>
+										</li>
+									</ul>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div id="storylist" class="span3 columnlist" ng-show="isEntryList">
+						
+							<button class="btn btn-mini"><i class="icon-refresh"></i>Reresh</button>
+
+						<section id="articlecontent" class="column">
+
+							<div class="wires">
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Packs of young people cause chaos in Hollywood</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="alertphoto xsmall muted">
+											<i class="icon-picture"></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Blackfeet release man jailed for criticism</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here, and might get quite long in which case it will use elipses.</p>
+									</div>
+
+								</div>
+
+
+
+								<div class="wireentry embargoed" ng-click="showentry()">
+
+									<div class="headline">
+
+										<div class="alertphoto xsmall muted">
+											<strong class="danger">EMBARGOED</strong>
+											<i class="icon-picture" style=""></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">White House threatens veto of GOP education bill</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Quirky Beltre having another solid season in Texas</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Excerpts from recent South Dakota editorials</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Monitoring cockpit systems not easy for pilots</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="alertphoto xsmall muted">
+											<i class="icon-picture"></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Has best shot of British Open already been struck?</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="alertphoto xsmall muted">
+											<i class="icon-picture"></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Mom begs for help in finding missing Mich. woman</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+
+
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Blackfeet release man jailed for criticism</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">White House threatens veto of GOP education bill</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+
+
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="alertphoto xsmall muted">
+											<i class="icon-picture"></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">AP Top Political News At 3:35 p.m. EDT</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											<div class="alertphoto xsmall muted">
+												<i class="icon-picture"></i>
+											</div>
+											<div class="publishtime xsmall muted">
+												<strong>3:12:47 PM</strong>
+											</div>
+											Quirky Beltre having another solid season in Texas</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Excerpts from recent South Dakota editorials</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Monitoring cockpit systems not easy for pilots</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											<div class="alertphoto xsmall muted">
+												<i class="icon-picture"></i>
+											</div>
+											<div class="publishtime xsmall muted">
+												<strong>3:12:47 PM</strong>
+											</div>
+											Has best shot of British Open already been struck?</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Mom begs for help in finding missing Mich. woman</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">Blackfeet release man jailed for criticism</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="alertphoto xsmall muted">
+											<i class="icon-picture"></i>
+										</div>
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">White House threatens veto of GOP education bill</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">AP Top Political News At 3:35 p.m. EDT</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Quirky Beltre having another solid season in Texas</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<a ng-click="showStory" class="text-regular">Excerpts from recent South Dakota editorials</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Monitoring cockpit systems not easy for pilots</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+
+								<div class="wireentry" ng-click="showentry()">
+
+									<div class="headline">
+										<div class="publishtime xsmall muted">
+											<strong>3:12:47 PM</strong>
+										</div>
+										<a ng-click="showStory" class="text-regular">
+											Has best shot of British Open already been struck?</a>
+									</div>
+
+									<div class="xsmall muted publishdate">
+										7/17/2013 | CQ-Roll Call, Inc.
+									</div>
+
+									<div class="editorialnote">
+										<p class="embargoednote">Editorial note goes here.</p>
+									</div>
+
+								</div>
+
+							</div>
+
+						</section>
+
+					</div>
+
+					<div id="storycopy" class="columnstory" ng-show="isEntrySelect">
+						
+						<ng-include src="'partials/presto-story-preview.html'"></ng-include>
+
+				</div>
+
+			</article>
+
+		</div>
+
+	</div>
+
+</section>

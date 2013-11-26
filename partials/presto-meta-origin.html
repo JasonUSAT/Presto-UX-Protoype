@@ -1,0 +1,53 @@
+<section id="stausdata" class="muted text-small">
+	<div id="lastaction"><strong>Last action:</strong> <span class="capitalize ng-binding">draft</span> - 8/28/13 9:41 AM</div>
+	<div id="createddby"><strong>Created by:</strong> jsmith</div>
+	<div id="modifiedby"><strong>Modified by:</strong> jsmith</div>
+	<div id="assetorigin" class=""><strong>Site:</strong> <a href="http://www.app.com/" target="external">Asbury Park Press</a><div>	
+
+	<div id="assetgroup" class="muted text-small">
+		<strong>Sub-site:</strong> <a ng-bind="subsitename" href="http://www.app.com/" target="external">None</a> 
+		<button class="btn btn-micro pull-right" ng-click="togglesubsite(subsitename)" ng-hide="isSaved">edit</button>
+	</div>
+	
+	<div id="subsite" ng-show="isSubsite">
+	
+		<ul class="additem">
+		
+		
+			
+			<li><i ng-click="togglesubsite('None')" class="icon-star" ng-class="selected"></i> <span ng-click="togglesubsite('None')" class="option"> None</span> </li>
+<!---->
+			<li><i ng-click="togglesubsite('Learning');" class="icon-star"></i> <span ng-click="togglesubsite('Learning')" class="option"> Learning</span> </li>
+			<li><i ng-click="togglesubsite('On Your Side')" class="icon-star"></i> <span ng-click="togglesubsite('On Your Side')" class="option"> On Your Side</span></li>
+			<li><i ng-click="togglesubsite('Health')" class="icon-star"></i> <span ng-click="togglesubsite('Health')" class="option"> Health</span></li>
+			<li><i ng-click="togglesubsite('Watchdog')" class="icon-star"></i> <span ng-click="togglesubsite('Watchdog')" class="option"> Watchdog</span></li>
+			<li><i ng-click="togglesubsite('Politics')" class="icon-star"></i> <span ng-click="togglesubsite('Politics')" class="option"> Politics</span></li>
+
+
+		</ul>
+		
+		   <!--
+<div class="select2-container select2-container-multi span12 ng-valid ng-dirty" id="s2id_autogen1" style="">
+        	<ul class="select2-choices" style="">  
+        		<li class="select2-search-field">    
+        			
+        		<div class="select2-drop select2-display-none select2-with-searchbox select2-drop-active">   <div class="select2-search">       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input select2-focused">   </div>   <ul class="select2-results"></ul></div> 			
+        			
+        			
+        		</li>
+        	</ul>
+		</div>
+-->
+
+
+			<select ui-select2 data-placeholder="Pick a section" name="section-field" ng-model="subSite">
+                <option value=""></option>
+                <option ng-repeat="site in subSiteSelector" ng-select="togglesubsite('TEST')" value="{{site}}">{{site}}</option>
+             </select>
+
+		</div>
+
+
+</section>
+
+<hr>

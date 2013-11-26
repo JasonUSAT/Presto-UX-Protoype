@@ -1,0 +1,80 @@
+body {position: relative}
+
+.control-group textarea {
+    resize: none;
+    width: 632px;
+    max-width: 632px;
+    min-width: 632px;
+}
+
+#metadata .label-text {
+    font-size: 12px;
+}
+
+#notecq {
+    height: 18px;
+}
+
+#notecq:focus {
+    height: 72px;
+}
+
+.affix-top {
+    position: absolute;
+    top: 55px;
+}
+
+.affix {
+     top: 50px;  
+}
+
+.affix-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+notification-bar .bootstrap-growl {
+    width: 304px !important;
+    position: relative !important;
+    margin: 0 0 10px 0 !important;
+    box-sizing: border-box;
+    top: 0px !important;
+    margin-bottom: 10px !important;
+    left: 0 !important;
+}
+
+/*************************
+ * CSS From Mockup
+ ************************/
+
+.draftcontrols,
+#metadata .content,
+#assetlibrary tr:hover td:first-of-type,
+.assetlist .priority td {
+    background-color: rgb(240,240,240);
+}
+
+#metadata div label {
+    margin-top: 7px;
+    margin-bottom: 0px;
+}
+
+.editHeader {
+    height: 30px;
+}
+.content {
+    padding: 10px;
+    color: rgb(85,85,85);
+}
+
+.label-text {
+    color: rgb(153,153,153);
+    vertical-align: middle;
+}
+.main-spinner {
+    min-height: 600px;
+}
+.dropzone {
+    min-height: 583px;
+}
+
